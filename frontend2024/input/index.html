@@ -3,14 +3,24 @@
 <head lang= "ru">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Способы ввода</title>
+	<!-- <title>Способы ввода</title> -->
 </head>
 <body>
-	<input type="text" name="text">
-
+	<input type="text" id="text">
+	<p id="inputText"></p>
 	<script>
 		let text = document.getElementById("text");
+		
+		let inputText = document.getElementById("inputText");
 		console.log(text);
+		function changeText() {
+			console.log(this.value);
+			let p = document.createElement("p");
+			p.textContent = this.value;
+			text.after(p);
+		}
+		// changeText.call(text);
+		text.addEventListener("change", changeText, false);
 	</script>
 
 </body>
